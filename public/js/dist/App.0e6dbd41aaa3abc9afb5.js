@@ -164,9 +164,9 @@ function Todo(_ref) {
     buttonStyle
   } = _ref;
   return /*#__PURE__*/React.createElement("div", {
-    className: _Todo_module_scss__WEBPACK_IMPORTED_MODULE_0__["default"].todo
+    className: "".concat(_Todo_module_scss__WEBPACK_IMPORTED_MODULE_0__["default"].todo, " ").concat(todo.completed ? _Todo_module_scss__WEBPACK_IMPORTED_MODULE_0__["default"].completed : '')
   }, /*#__PURE__*/React.createElement("div", {
-    className: _Todo_module_scss__WEBPACK_IMPORTED_MODULE_0__["default"].text
+    className: "".concat(_Todo_module_scss__WEBPACK_IMPORTED_MODULE_0__["default"].text, " ").concat(_Todo_module_scss__WEBPACK_IMPORTED_MODULE_0__["default"].dragHandle)
   }, todo.title), /*#__PURE__*/React.createElement("button", {
     className: "".concat(_Todo_module_scss__WEBPACK_IMPORTED_MODULE_0__["default"].button, " ").concat(_Todo_module_scss__WEBPACK_IMPORTED_MODULE_0__["default"][buttonStyle]),
     onClick: () => buttonAction(todo._id)
@@ -204,9 +204,16 @@ function TodoList(_ref) {
     moveToCompleted,
     deleteTodo
   } = _ref;
+  const handleAddTodo = () => {
+    if (newTodo.title.trim() !== '') {
+      createTodo();
+    }
+  };
   return /*#__PURE__*/React.createElement("div", {
-    className: _TodoList_module_scss__WEBPACK_IMPORTED_MODULE_0__["default"].todolist
-  }, "Add New Todo:", /*#__PURE__*/React.createElement("input", {
+    className: "".concat(_TodoList_module_scss__WEBPACK_IMPORTED_MODULE_0__["default"].todolist, " ").concat(_TodoList_module_scss__WEBPACK_IMPORTED_MODULE_0__["default"].biggerText)
+  }, "Just do it:", /*#__PURE__*/React.createElement("div", {
+    className: _TodoList_module_scss__WEBPACK_IMPORTED_MODULE_0__["default"].inputContainer
+  }, /*#__PURE__*/React.createElement("input", {
     className: _TodoList_module_scss__WEBPACK_IMPORTED_MODULE_0__["default"].input,
     type: "text",
     value: newTodo.title,
@@ -216,9 +223,13 @@ function TodoList(_ref) {
       }));
     },
     onKeyDown: e => {
-      e.key === 'Enter' && createTodo();
-    }
-  }), /*#__PURE__*/React.createElement("h3", null, "Todos"), todos.map(todo => /*#__PURE__*/React.createElement(_Todo_Todo__WEBPACK_IMPORTED_MODULE_1__["default"], {
+      e.key === 'Enter' && handleAddTodo();
+    },
+    placeholder: "Add a task..."
+  }), /*#__PURE__*/React.createElement("button", {
+    className: _TodoList_module_scss__WEBPACK_IMPORTED_MODULE_0__["default"].addButton,
+    onClick: handleAddTodo
+  }, "Add Todo")), /*#__PURE__*/React.createElement("h3", null, "Todos"), todos.map(todo => /*#__PURE__*/React.createElement(_Todo_Todo__WEBPACK_IMPORTED_MODULE_1__["default"], {
     key: todo._id,
     todo: todo,
     buttonAction: moveToCompleted,
@@ -273,7 +284,6 @@ root.render( /*#__PURE__*/React.createElement(react__WEBPACK_IMPORTED_MODULE_0__
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
 ___CSS_LOADER_EXPORT___.push([module.id, `.dF90VpCFmFTIHpnHLKQv {
-  /*! keep */
   position: relative;
   display: flex;
   justify-content: space-between;
@@ -281,27 +291,28 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.dF90VpCFmFTIHpnHLKQv {
   font-size: 1.5rem;
   margin: 5px;
   padding: 10px;
+  background-color: rgba(88, 89, 90, 0.3);
   color: rgba(209, 206, 215, 0.8);
-  border-radius: 10px;
-  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease-in-out, background-color 0.3s ease-in-out, cursor 0.3s ease-in-out; /* Add cursor transition */
+  border-radius: 2rem;
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease-in-out, background-color 0.3s ease-in-out, cursor 0.3s ease-in-out;
 }
 .dF90VpCFmFTIHpnHLKQv:hover {
-  transform: scale(1.05);
+  transform: scale(1.02);
   box-shadow: 0 8px 15px rgba(23, 5, 58, 0.3);
   background-color: rgba(255, 255, 255, 0.05);
-  cursor: pointer; /* Change cursor on hover */
+  cursor: pointer;
 }
 .dF90VpCFmFTIHpnHLKQv::before {
   content: "";
   position: absolute;
-  top: -10px;
-  left: -10px;
-  right: -10px;
-  bottom: -10px;
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), transparent);
+  top: -4px;
+  left: -4px;
+  right: -4px;
+  bottom: -4px;
+  background: linear-gradient(135deg, rgba(92, 228, 208, 0.1), transparent);
   opacity: 0;
   z-index: -1;
-  border-radius: 12px;
+  border-radius: 2rem;
   transition: opacity 0.3s ease-in-out;
 }
 .dF90VpCFmFTIHpnHLKQv:hover::before {
@@ -310,6 +321,9 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.dF90VpCFmFTIHpnHLKQv {
 .dF90VpCFmFTIHpnHLKQv .RjH3BJHyeOuYask7QSbU {
   flex-grow: 1;
   margin-right: 1rem;
+}
+.dF90VpCFmFTIHpnHLKQv.XSCdHhxZCSxWVXCYFmfw .RjH3BJHyeOuYask7QSbU {
+  text-decoration: line-through;
 }
 .dF90VpCFmFTIHpnHLKQv .QxYmIa1HnHqyxrkndPO_ {
   text-transform: uppercase;
@@ -324,17 +338,18 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.dF90VpCFmFTIHpnHLKQv {
   box-shadow: 0 2px 5px rgba(23, 5, 58, 0.5);
 }
 .dF90VpCFmFTIHpnHLKQv .QxYmIa1HnHqyxrkndPO_.rp95Qib0wPuKEIqnecGH {
-  background-color: rgb(32, 130, 58);
+  background-color: rgb(7, 92, 31);
   color: ghostwhite;
 }
 .dF90VpCFmFTIHpnHLKQv .QxYmIa1HnHqyxrkndPO_._ZHjzZlpV8dGRLZJaPdE {
-  background-color: rgba(212, 69, 69, 0.799);
+  background-color: rgba(130, 17, 17, 0.799);
   color: ghostwhite;
-}`, "",{"version":3,"sources":["webpack://./src/components/Todo/Todo.module.scss"],"names":[],"mappings":"AAAA;EACI,UAAA;EACA,kBAAA;EACA,aAAA;EACA,8BAAA;EACA,uBAAA;EACA,iBAAA;EACA,WAAA;EACA,aAAA;EACA,+BAAA;EACA,mBAAA;EACA,2JAAA,EAAA,0BAAA;AACJ;AACI;EACI,sBAAA;EACA,2CAAA;EACA,2CAAA;EACA,eAAA,EAAA,2BAAA;AACR;AAEI;EACI,WAAA;EACA,kBAAA;EACA,UAAA;EACA,WAAA;EACA,YAAA;EACA,aAAA;EACA,0EAAA;EACA,UAAA;EACA,WAAA;EACA,mBAAA;EACA,oCAAA;AAAR;AAGI;EACI,UAAA;AADR;AAII;EACI,YAAA;EACA,kBAAA;AAFR;AAKI;EACI,yBAAA;EACA,mBAAA;EACA,eAAA;EACA,qBAAA;EACA,eAAA;EACA,gBAAA;EACA,qBAAA;EACA,iBAAA;EACA,uBAAA;EACA,0CAAA;AAHR;AAKQ;EACI,kCAAA;EACA,iBAAA;AAHZ;AAMQ;EACI,0CAAA;EACA,iBAAA;AAJZ","sourcesContent":[".todo {\n    /*! keep */\n    position: relative;\n    display: flex;\n    justify-content: space-between;\n    align-items: flex-start;\n    font-size: 1.5rem;\n    margin: 5px;\n    padding: 10px;\n    color: rgba(209, 206, 215, 0.8);\n    border-radius: 10px;\n    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease-in-out, background-color 0.3s ease-in-out, cursor 0.3s ease-in-out; /* Add cursor transition */\n\n    &:hover {\n        transform: scale(1.05);\n        box-shadow: 0 8px 15px rgba(23, 5, 58, 0.3);\n        background-color: rgba(255, 255, 255, 0.05);\n        cursor: pointer; /* Change cursor on hover */\n    }\n\n    &::before {\n        content: \"\";\n        position: absolute;\n        top: -10px;\n        left: -10px;\n        right: -10px;\n        bottom: -10px;\n        background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), transparent);\n        opacity: 0;\n        z-index: -1;\n        border-radius: 12px;\n        transition: opacity 0.3s ease-in-out;\n    }\n\n    &:hover::before {\n        opacity: 1;\n    }\n\n    .text {\n        flex-grow: 1;\n        margin-right: 1rem;\n    }\n\n    .button {\n        text-transform: uppercase;\n        border-radius: 1rem;\n        cursor: pointer;\n        padding: 0.25rem 1rem;\n        font-size: 1rem;\n        font-weight: 700;\n        display: inline-block;\n        margin-left: 1rem;\n        border: 1px solid white;\n        box-shadow: 0 2px 5px rgba(23, 5, 58, 0.5);\n\n        &.completeButton {\n            background-color: rgb(32, 130, 58);\n            color: ghostwhite;\n        }\n\n        &.deleteButton {\n            background-color: rgba(212, 69, 69, 0.799);\n            color: ghostwhite;\n        }\n    }\n}\n"],"sourceRoot":""}]);
+}`, "",{"version":3,"sources":["webpack://./src/components/Todo/Todo.module.scss"],"names":[],"mappings":"AAAA;EACI,kBAAA;EACA,aAAA;EACA,8BAAA;EACA,uBAAA;EACA,iBAAA;EACA,WAAA;EACA,aAAA;EACA,uCAAA;EACA,+BAAA;EACA,mBAAA;EACA,2JAAA;AACJ;AACI;EACI,sBAAA;EACA,2CAAA;EACA,2CAAA;EACA,eAAA;AACR;AAEI;EACI,WAAA;EACA,kBAAA;EACA,SAAA;EACA,UAAA;EACA,WAAA;EACA,YAAA;EACA,yEAAA;EACA,UAAA;EACA,WAAA;EACA,mBAAA;EACA,oCAAA;AAAR;AAGI;EACI,UAAA;AADR;AAII;EACI,YAAA;EACA,kBAAA;AAFR;AAKI;EACI,6BAAA;AAHR;AAMI;EACI,yBAAA;EACA,mBAAA;EACA,eAAA;EACA,qBAAA;EACA,eAAA;EACA,gBAAA;EACA,qBAAA;EACA,iBAAA;EACA,uBAAA;EACA,0CAAA;AAJR;AAMQ;EACI,gCAAA;EACA,iBAAA;AAJZ;AAOQ;EACI,0CAAA;EACA,iBAAA;AALZ","sourcesContent":[".todo {\n    position: relative;\n    display: flex;\n    justify-content: space-between;\n    align-items: flex-start;\n    font-size: 1.5rem;\n    margin: 5px;\n    padding: 10px;\n    background-color: rgb(88, 89, 90, 0.3);\n    color: rgba(209, 206, 215, 0.8);\n    border-radius: 2rem;\n    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease-in-out, background-color 0.3s ease-in-out, cursor 0.3s ease-in-out;\n\n    &:hover {\n        transform: scale(1.02);\n        box-shadow: 0 8px 15px rgba(23, 5, 58, 0.3);\n        background-color: rgba(255, 255, 255, 0.05);\n        cursor: pointer;\n    }\n\n    &::before {\n        content: \"\";\n        position: absolute;\n        top: -4px;\n        left: -4px;\n        right: -4px;\n        bottom: -4px;\n        background: linear-gradient(135deg, rgba(92, 228, 208, 0.1), transparent);\n        opacity: 0;\n        z-index: -1;\n        border-radius: 2rem;\n        transition: opacity 0.3s ease-in-out;\n    }\n\n    &:hover::before {\n        opacity: 1;\n    }\n\n    .text {\n        flex-grow: 1;\n        margin-right: 1rem;\n    }\n\n    &.completed .text {\n        text-decoration: line-through;\n    }\n\n    .button {\n        text-transform: uppercase;\n        border-radius: 1rem;\n        cursor: pointer;\n        padding: 0.25rem 1rem;\n        font-size: 1rem;\n        font-weight: 700;\n        display: inline-block;\n        margin-left: 1rem;\n        border: 1px solid white;\n        box-shadow: 0 2px 5px rgba(23, 5, 58, 0.5);\n\n        &.completeButton {\n            background-color: rgb(7, 92, 31);\n            color: ghostwhite;\n        }\n\n        &.deleteButton {\n            background-color: rgba(130, 17, 17, 0.799);\n            color: ghostwhite;\n        }\n    }\n}"],"sourceRoot":""}]);
 // Exports
 ___CSS_LOADER_EXPORT___.locals = {
 	"todo": `dF90VpCFmFTIHpnHLKQv`,
 	"text": `RjH3BJHyeOuYask7QSbU`,
+	"completed": `XSCdHhxZCSxWVXCYFmfw`,
 	"button": `QxYmIa1HnHqyxrkndPO_`,
 	"completeButton": `rp95Qib0wPuKEIqnecGH`,
 	"deleteButton": `_ZHjzZlpV8dGRLZJaPdE`
@@ -367,26 +382,56 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.wnFJvwW6SXbdzT0JPncz {
   flex-direction: column;
   font-size: 2rem;
   color: rgba(251, 221, 221, 0.8);
-  border-radius: 9px;
-  border: 1px solid rgba(126, 181, 215, 0.853);
   padding: 2rem;
-  box-shadow: 2px 4px 8px rgba(116, 76, 198, 0.88);
+  margin: 2rem;
 }
-.wnFJvwW6SXbdzT0JPncz .nvJYrRRxdDNaUqfYENmW {
-  border-radius: 1rem;
-  color: rgba(0, 0, 0, 0.8);
-  display: inline-block;
+.wnFJvwW6SXbdzT0JPncz.O3BRYjiin3KHTwsVflem {
+  font-size: 5rem;
+  font-weight: bold;
+}
+.wnFJvwW6SXbdzT0JPncz .BnzkW84o5qQ9GB8rvVUg {
+  display: flex;
+  align-items: center;
+  margin: 3rem 0;
+}
+.wnFJvwW6SXbdzT0JPncz .BnzkW84o5qQ9GB8rvVUg .nvJYrRRxdDNaUqfYENmW {
+  flex-grow: 1;
+  border-top-left-radius: 2rem;
+  border-bottom-left-radius: 2rem;
+  color: rgba(251, 221, 221, 0.8);
   font-size: 2.5rem;
   height: 3.5rem;
-  margin: 1rem;
-  border: 0;
-  background-color: rgb(184, 184, 184);
+  margin: 0; /* Remove margin from here */
+  border: none;
+  background-color: rgba(13, 14, 20, 0.588);
   padding-left: 1rem;
-}`, "",{"version":3,"sources":["webpack://./src/components/TodoList/TodoList.module.scss"],"names":[],"mappings":"AAAA;EACI,aAAA;EACA,sBAAA;EACA,eAAA;EACA,+BAAA;EACA,kBAAA;EACA,4CAAA;EACA,aAAA;EACA,gDAAA;AACJ;AAAI;EACI,mBAAA;EACA,yBAAA;EACA,qBAAA;EACA,iBAAA;EACA,cAAA;EACA,YAAA;EACA,SAAA;EACA,oCAAA;EACA,kBAAA;AAER","sourcesContent":[".todolist {\n    display: flex;\n    flex-direction: column;\n    font-size: 2rem;\n    color: rgba(251, 221, 221, 0.8);\n    border-radius: 9px;\n    border: 1px solid rgba(126, 181, 215, 0.853);\n    padding: 2rem;\n    box-shadow: 2px 4px 8px rgba(116, 76, 198, 0.88);\n    .input {\n        border-radius: 1rem;\n        color:rgba(0, 0, 0, 0.8);\n        display: inline-block;\n        font-size: 2.5rem;\n        height: 3.5rem;\n        margin: 1rem;\n        border: 0;\n        background-color: rgb(184, 184, 184);\n        padding-left: 1rem;\n    }\n   \n}\n"],"sourceRoot":""}]);
+}
+.wnFJvwW6SXbdzT0JPncz .BnzkW84o5qQ9GB8rvVUg .A8vP5WAFGDkMQMFLx1j1 {
+  padding: 0 1rem 0 1rem;
+  height: 3.5rem;
+  font-size: 2.5rem; /* Adjust the font size to match input */
+  background-color: rgba(251, 221, 221, 0.8);
+  color: rgb(13, 14, 20);
+  border: none;
+  border-top-right-radius: 2rem;
+  border-bottom-right-radius: 2rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
+.wnFJvwW6SXbdzT0JPncz .BnzkW84o5qQ9GB8rvVUg .A8vP5WAFGDkMQMFLx1j1:hover {
+  background-color: rgba(251, 221, 221, 0.251);
+}
+.wnFJvwW6SXbdzT0JPncz h3 {
+  font-size: 2rem;
+  margin: 1rem 0;
+}`, "",{"version":3,"sources":["webpack://./src/components/TodoList/TodoList.module.scss"],"names":[],"mappings":"AAAA;EACI,aAAA;EACA,sBAAA;EACA,eAAA;EACA,+BAAA;EACA,aAAA;EACA,YAAA;AACJ;AACI;EACI,eAAA;EACA,iBAAA;AACR;AAEI;EACI,aAAA;EACA,mBAAA;EACA,cAAA;AAAR;AAEQ;EACI,YAAA;EACA,4BAAA;EACA,+BAAA;EACA,+BAAA;EACA,iBAAA;EACA,cAAA;EACA,SAAA,EAAA,4BAAA;EACA,YAAA;EACA,yCAAA;EACA,kBAAA;AAAZ;AAGQ;EACI,sBAAA;EACA,cAAA;EACA,iBAAA,EAAA,wCAAA;EACA,0CAAA;EACA,sBAAA;EACA,YAAA;EACA,6BAAA;EACA,gCAAA;EACA,eAAA;EACA,6CAAA;AADZ;AAGY;EACI,4CAAA;AADhB;AAMI;EACI,eAAA;EACA,cAAA;AAJR","sourcesContent":[".todolist {\n    display: flex;\n    flex-direction: column;\n    font-size: 2rem;\n    color: rgba(251, 221, 221, 0.8);\n    padding: 2rem;\n    margin: 2rem;\n\n    &.biggerText {\n        font-size: 5rem;\n        font-weight: bold;\n    }\n\n    .inputContainer {\n        display: flex;\n        align-items: center;\n        margin: 3rem 0;\n\n        .input {\n            flex-grow: 1;\n            border-top-left-radius: 2rem;\n            border-bottom-left-radius: 2rem;\n            color: rgba(251, 221, 221, 0.8);\n            font-size: 2.5rem;\n            height: 3.5rem;\n            margin: 0; /* Remove margin from here */\n            border: none;\n            background-color: rgba(13, 14, 20, 0.588);\n            padding-left: 1rem;\n        }\n\n        .addButton {\n            padding: 0 1rem 0 1rem;\n            height: 3.5rem;\n            font-size: 2.5rem; /* Adjust the font size to match input */\n            background-color: rgba(251, 221, 221, 0.8);\n            color: rgba(13, 14, 20);\n            border: none;\n            border-top-right-radius: 2rem;\n            border-bottom-right-radius: 2rem;\n            cursor: pointer;\n            transition: background-color 0.3s ease-in-out;\n\n            &:hover {\n                background-color: rgba(251, 221, 221, 0.251);\n            }\n        }\n    }\n\n    h3 {\n        font-size: 2rem;\n        margin: 1rem 0;\n    }\n}\n"],"sourceRoot":""}]);
 // Exports
 ___CSS_LOADER_EXPORT___.locals = {
 	"todolist": `wnFJvwW6SXbdzT0JPncz`,
-	"input": `nvJYrRRxdDNaUqfYENmW`
+	"biggerText": `O3BRYjiin3KHTwsVflem`,
+	"inputContainer": `BnzkW84o5qQ9GB8rvVUg`,
+	"input": `nvJYrRRxdDNaUqfYENmW`,
+	"addButton": `A8vP5WAFGDkMQMFLx1j1`
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -670,4 +715,4 @@ var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js
 /******/ 	
 /******/ })()
 ;
-//# sourceMappingURL=App.7193b34fb5728c9fcc40bbdd8fae7054.js.map
+//# sourceMappingURL=App.eb68d6b11e86cd818d944681c5e26b4e.js.map
