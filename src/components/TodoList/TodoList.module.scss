@@ -1,21 +1,22 @@
 .todolist {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
     font-size: 2rem;
-    color: rgba(23,5, 58, 0.8);
+    color: rgba(253, 253, 253, 0.8);
     border-radius: 9px;
-    border: 1px solid rgba(23,5, 58, 0.1);
+    border: 1px solid rgba(126, 181, 215, 0.853);
     padding: 2rem;
-    box-shadow: 2px 4px 8px rgba(23,5, 58, 0.5);
+    box-shadow: 2px 4px 8px rgba(116, 76, 198, 0.88);
     .input {
-        color:rgba(23,5, 58, 0.8);
+        border-radius: 1rem;
+        color:rgba(0, 0, 0, 0.8);
         display: inline-block;
         font-size: 2.5rem;
         height: 3.5rem;
         margin: 1rem;
         border: 0;
-        background-color: rgb(243, 245, 254);
+        background-color: rgb(184, 184, 184);
+        padding-left: 1rem;
     }
+   
 }

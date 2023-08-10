@@ -160,12 +160,15 @@ function Todo(_ref) {
   let {
     todo,
     buttonAction,
-    buttonText
+    buttonText,
+    buttonStyle
   } = _ref;
   return /*#__PURE__*/React.createElement("div", {
     className: _Todo_module_scss__WEBPACK_IMPORTED_MODULE_0__["default"].todo
-  }, " ", todo.title, /*#__PURE__*/React.createElement("button", {
-    className: _Todo_module_scss__WEBPACK_IMPORTED_MODULE_0__["default"].button,
+  }, /*#__PURE__*/React.createElement("div", {
+    className: _Todo_module_scss__WEBPACK_IMPORTED_MODULE_0__["default"].text
+  }, todo.title), /*#__PURE__*/React.createElement("button", {
+    className: "".concat(_Todo_module_scss__WEBPACK_IMPORTED_MODULE_0__["default"].button, " ").concat(_Todo_module_scss__WEBPACK_IMPORTED_MODULE_0__["default"][buttonStyle]),
     onClick: () => buttonAction(todo._id)
   }, buttonText));
 }
@@ -219,12 +222,14 @@ function TodoList(_ref) {
     key: todo._id,
     todo: todo,
     buttonAction: moveToCompleted,
-    buttonText: 'Complete'
+    buttonText: 'Complete',
+    buttonStyle: 'completeButton'
   })), /*#__PURE__*/React.createElement("h3", null, "Completed Todos"), completedTodos.map(todo => /*#__PURE__*/React.createElement(_Todo_Todo__WEBPACK_IMPORTED_MODULE_1__["default"], {
     key: todo._id,
     todo: todo,
     buttonAction: deleteTodo,
-    buttonText: 'Delete'
+    buttonText: 'Delete',
+    buttonStyle: 'deleteButton'
   })));
 }
 
@@ -269,26 +274,70 @@ var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBP
 // Module
 ___CSS_LOADER_EXPORT___.push([module.id, `.dF90VpCFmFTIHpnHLKQv {
   /*! keep */
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
   font-size: 1.5rem;
-  color: rgba(23, 5, 58, 0.8);
+  margin: 5px;
+  padding: 10px;
+  color: rgba(209, 206, 215, 0.8);
+  border-radius: 10px;
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease-in-out, background-color 0.3s ease-in-out, cursor 0.3s ease-in-out; /* Add cursor transition */
+}
+.dF90VpCFmFTIHpnHLKQv:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 15px rgba(23, 5, 58, 0.3);
+  background-color: rgba(255, 255, 255, 0.05);
+  cursor: pointer; /* Change cursor on hover */
+}
+.dF90VpCFmFTIHpnHLKQv::before {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  right: -10px;
+  bottom: -10px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), transparent);
+  opacity: 0;
+  z-index: -1;
+  border-radius: 12px;
+  transition: opacity 0.3s ease-in-out;
+}
+.dF90VpCFmFTIHpnHLKQv:hover::before {
+  opacity: 1;
+}
+.dF90VpCFmFTIHpnHLKQv .RjH3BJHyeOuYask7QSbU {
+  flex-grow: 1;
+  margin-right: 1rem;
 }
 .dF90VpCFmFTIHpnHLKQv .QxYmIa1HnHqyxrkndPO_ {
-  background-color: rgba(23, 5, 58, 0.8);
   text-transform: uppercase;
+  border-radius: 1rem;
   cursor: pointer;
-  color: ghostwhite;
   padding: 0.25rem 1rem;
   font-size: 1rem;
   font-weight: 700;
   display: inline-block;
   margin-left: 1rem;
-  border: 2px;
+  border: 1px solid white;
   box-shadow: 0 2px 5px rgba(23, 5, 58, 0.5);
-}`, "",{"version":3,"sources":["webpack://./src/components/Todo/Todo.module.scss"],"names":[],"mappings":"AAAA;EACI,UAAA;EACA,iBAAA;EACA,2BAAA;AACJ;AAAI;EACI,sCAAA;EACA,yBAAA;EACA,eAAA;EACA,iBAAA;EACA,qBAAA;EACA,eAAA;EACA,gBAAA;EACA,qBAAA;EACA,iBAAA;EACA,WAAA;EACA,0CAAA;AAER","sourcesContent":[".todo {\n    /*! keep */\n    font-size: 1.5rem;\n    color: rgba(23, 5, 58, 0.8);\n    .button {\n        background-color: rgba(23, 5, 58, 0.8);\n        text-transform: uppercase;\n        cursor: pointer;\n        color: ghostwhite;\n        padding: 0.25rem 1rem;\n        font-size: 1rem;\n        font-weight: 700;\n        display: inline-block;\n        margin-left: 1rem;\n        border: 2px;\n        box-shadow: 0 2px 5px rgba(23, 5, 58, 0.5);\n    }\n}"],"sourceRoot":""}]);
+}
+.dF90VpCFmFTIHpnHLKQv .QxYmIa1HnHqyxrkndPO_.rp95Qib0wPuKEIqnecGH {
+  background-color: rgb(32, 130, 58);
+  color: ghostwhite;
+}
+.dF90VpCFmFTIHpnHLKQv .QxYmIa1HnHqyxrkndPO_._ZHjzZlpV8dGRLZJaPdE {
+  background-color: red;
+  color: ghostwhite;
+}`, "",{"version":3,"sources":["webpack://./src/components/Todo/Todo.module.scss"],"names":[],"mappings":"AAAA;EACI,UAAA;EACA,kBAAA;EACA,aAAA;EACA,8BAAA;EACA,uBAAA;EACA,iBAAA;EACA,WAAA;EACA,aAAA;EACA,+BAAA;EACA,mBAAA;EACA,2JAAA,EAAA,0BAAA;AACJ;AACI;EACI,sBAAA;EACA,2CAAA;EACA,2CAAA;EACA,eAAA,EAAA,2BAAA;AACR;AAEI;EACI,WAAA;EACA,kBAAA;EACA,UAAA;EACA,WAAA;EACA,YAAA;EACA,aAAA;EACA,0EAAA;EACA,UAAA;EACA,WAAA;EACA,mBAAA;EACA,oCAAA;AAAR;AAGI;EACI,UAAA;AADR;AAII;EACI,YAAA;EACA,kBAAA;AAFR;AAKI;EACI,yBAAA;EACA,mBAAA;EACA,eAAA;EACA,qBAAA;EACA,eAAA;EACA,gBAAA;EACA,qBAAA;EACA,iBAAA;EACA,uBAAA;EACA,0CAAA;AAHR;AAKQ;EACI,kCAAA;EACA,iBAAA;AAHZ;AAMQ;EACI,qBAAA;EACA,iBAAA;AAJZ","sourcesContent":[".todo {\n    /*! keep */\n    position: relative;\n    display: flex;\n    justify-content: space-between;\n    align-items: flex-start;\n    font-size: 1.5rem;\n    margin: 5px;\n    padding: 10px;\n    color: rgba(209, 206, 215, 0.8);\n    border-radius: 10px;\n    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease-in-out, background-color 0.3s ease-in-out, cursor 0.3s ease-in-out; /* Add cursor transition */\n\n    &:hover {\n        transform: scale(1.05);\n        box-shadow: 0 8px 15px rgba(23, 5, 58, 0.3);\n        background-color: rgba(255, 255, 255, 0.05);\n        cursor: pointer; /* Change cursor on hover */\n    }\n\n    &::before {\n        content: \"\";\n        position: absolute;\n        top: -10px;\n        left: -10px;\n        right: -10px;\n        bottom: -10px;\n        background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), transparent);\n        opacity: 0;\n        z-index: -1;\n        border-radius: 12px;\n        transition: opacity 0.3s ease-in-out;\n    }\n\n    &:hover::before {\n        opacity: 1;\n    }\n\n    .text {\n        flex-grow: 1;\n        margin-right: 1rem;\n    }\n\n    .button {\n        text-transform: uppercase;\n        border-radius: 1rem;\n        cursor: pointer;\n        padding: 0.25rem 1rem;\n        font-size: 1rem;\n        font-weight: 700;\n        display: inline-block;\n        margin-left: 1rem;\n        border: 1px solid white;\n        box-shadow: 0 2px 5px rgba(23, 5, 58, 0.5);\n\n        &.completeButton {\n            background-color: rgb(32, 130, 58);\n            color: ghostwhite;\n        }\n\n        &.deleteButton {\n            background-color: red;\n            color: ghostwhite;\n        }\n    }\n}\n"],"sourceRoot":""}]);
 // Exports
 ___CSS_LOADER_EXPORT___.locals = {
 	"todo": `dF90VpCFmFTIHpnHLKQv`,
-	"button": `QxYmIa1HnHqyxrkndPO_`
+	"text": `RjH3BJHyeOuYask7QSbU`,
+	"button": `QxYmIa1HnHqyxrkndPO_`,
+	"completeButton": `rp95Qib0wPuKEIqnecGH`,
+	"deleteButton": `_ZHjzZlpV8dGRLZJaPdE`
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -316,24 +365,24 @@ var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBP
 ___CSS_LOADER_EXPORT___.push([module.id, `.wnFJvwW6SXbdzT0JPncz {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
   font-size: 2rem;
-  color: rgba(23, 5, 58, 0.8);
+  color: rgba(253, 253, 253, 0.8);
   border-radius: 9px;
-  border: 1px solid rgba(23, 5, 58, 0.1);
+  border: 1px solid rgba(126, 181, 215, 0.853);
   padding: 2rem;
-  box-shadow: 2px 4px 8px rgba(23, 5, 58, 0.5);
+  box-shadow: 2px 4px 8px rgba(116, 76, 198, 0.88);
 }
 .wnFJvwW6SXbdzT0JPncz .nvJYrRRxdDNaUqfYENmW {
-  color: rgba(23, 5, 58, 0.8);
+  border-radius: 1rem;
+  color: rgba(0, 0, 0, 0.8);
   display: inline-block;
   font-size: 2.5rem;
   height: 3.5rem;
   margin: 1rem;
   border: 0;
-  background-color: rgb(243, 245, 254);
-}`, "",{"version":3,"sources":["webpack://./src/components/TodoList/TodoList.module.scss"],"names":[],"mappings":"AAAA;EACI,aAAA;EACA,sBAAA;EACA,uBAAA;EACA,mBAAA;EACA,eAAA;EACA,2BAAA;EACA,kBAAA;EACA,sCAAA;EACA,aAAA;EACA,4CAAA;AACJ;AAAI;EACI,2BAAA;EACA,qBAAA;EACA,iBAAA;EACA,cAAA;EACA,YAAA;EACA,SAAA;EACA,oCAAA;AAER","sourcesContent":[".todolist {\n    display: flex;\n    flex-direction: column;\n    justify-content: center;\n    align-items: center;\n    font-size: 2rem;\n    color: rgba(23,5, 58, 0.8);\n    border-radius: 9px;\n    border: 1px solid rgba(23,5, 58, 0.1);\n    padding: 2rem;\n    box-shadow: 2px 4px 8px rgba(23,5, 58, 0.5);\n    .input {\n        color:rgba(23,5, 58, 0.8);\n        display: inline-block;\n        font-size: 2.5rem;\n        height: 3.5rem;\n        margin: 1rem;\n        border: 0;\n        background-color: rgb(243, 245, 254);\n    }\n}"],"sourceRoot":""}]);
+  background-color: rgb(184, 184, 184);
+  padding-left: 1rem;
+}`, "",{"version":3,"sources":["webpack://./src/components/TodoList/TodoList.module.scss"],"names":[],"mappings":"AAAA;EACI,aAAA;EACA,sBAAA;EACA,eAAA;EACA,+BAAA;EACA,kBAAA;EACA,4CAAA;EACA,aAAA;EACA,gDAAA;AACJ;AAAI;EACI,mBAAA;EACA,yBAAA;EACA,qBAAA;EACA,iBAAA;EACA,cAAA;EACA,YAAA;EACA,SAAA;EACA,oCAAA;EACA,kBAAA;AAER","sourcesContent":[".todolist {\n    display: flex;\n    flex-direction: column;\n    font-size: 2rem;\n    color: rgba(253, 253, 253, 0.8);\n    border-radius: 9px;\n    border: 1px solid rgba(126, 181, 215, 0.853);\n    padding: 2rem;\n    box-shadow: 2px 4px 8px rgba(116, 76, 198, 0.88);\n    .input {\n        border-radius: 1rem;\n        color:rgba(0, 0, 0, 0.8);\n        display: inline-block;\n        font-size: 2.5rem;\n        height: 3.5rem;\n        margin: 1rem;\n        border: 0;\n        background-color: rgb(184, 184, 184);\n        padding-left: 1rem;\n    }\n   \n}\n"],"sourceRoot":""}]);
 // Exports
 ___CSS_LOADER_EXPORT___.locals = {
 	"todolist": `wnFJvwW6SXbdzT0JPncz`,
@@ -621,4 +670,4 @@ var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js
 /******/ 	
 /******/ })()
 ;
-//# sourceMappingURL=App.7de5dcddc93f12091da4672013c19c8c.js.map
+//# sourceMappingURL=App.4835b049e26e1a96521dc78f37a31c2a.js.map

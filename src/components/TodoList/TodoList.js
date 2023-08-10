@@ -30,6 +30,7 @@ export default function TodoList ({
                 todo={todo}
                 buttonAction={moveToCompleted}
                 buttonText={'Complete'}
+                buttonStyle={'completeButton'}
             />
         ))}
         <h3>Completed Todos</h3>
@@ -39,6 +40,7 @@ export default function TodoList ({
                 todo={todo}
                 buttonAction={deleteTodo}
                 buttonText={'Delete'}
+                buttonStyle={'deleteButton'}
             />
         ))}
         </div>
