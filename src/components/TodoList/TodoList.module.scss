@@ -5,13 +5,17 @@
     color: rgba(251, 221, 221, 0.8);
     padding: 2rem;
     margin: 2rem;
+
     @media (min-width: 320px) and (max-width: 1290px) {
-        margin: 0.5rem;
+        margin: 0.2rem;
+        padding: 0.2rem;
+        width: 100%;
     }
 
     &.biggerText {
         font-size: 5rem;
         font-weight: bold;
+
         @media (min-width: 320px) and (max-width: 1290px) {
             font-size: 3rem;
         }
@@ -34,6 +38,10 @@
             border: none;
             background-color: rgba(13, 14, 20, 0.588);
             padding-left: 1rem;
+
+            @media (min-width: 320px) and (max-width: 1290px) {
+                width: 70vw;
+            }
         }
 
         .addButton {

@@ -11,6 +11,12 @@
     border-radius: 2rem;
     transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease-in-out, background-color 0.3s ease-in-out, cursor 0.3s ease-in-out;
 
+    @media (min-width: 320px) and (max-width: 1290px) {
+        margin: 0.2rem;
+        padding: 0.2rem;
+        width: 100%;
+    }
+
     &:hover {
         transform: scale(1.02);
         box-shadow: 0 8px 15px rgba(23, 5, 58, 0.3);
