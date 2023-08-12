@@ -66,5 +66,14 @@
             background-color: rgba(130, 17, 17, 0.799);
             color: ghostwhite;
         }
+
+        @media (min-width: 320px) and (max-width: 1290px) {
+            font-size: 0.5rem;
+        }
+    }
+
+    @media (min-width: 320px) and (max-width: 1290px) {
+        font-size: 1rem;
+        margin: 5px 0 5px 0;
     }
 }

@@ -6,4 +6,8 @@ body {
     flex-direction: column;
     align-items: center;
     background: linear-gradient(to right, #4a5052, #021925); /* Gradient from left to right */
+
+    @media (min-width: 320px) and (max-width: 1290px) {
+        padding: 10px;
+    }
 }
