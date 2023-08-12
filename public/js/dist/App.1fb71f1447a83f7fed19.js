@@ -229,7 +229,7 @@ function TodoList(_ref) {
   }), /*#__PURE__*/React.createElement("button", {
     className: _TodoList_module_scss__WEBPACK_IMPORTED_MODULE_0__["default"].addButton,
     onClick: handleAddTodo
-  }, "Add Todo")), /*#__PURE__*/React.createElement("h3", null, "Todos"), todos.map(todo => /*#__PURE__*/React.createElement(_Todo_Todo__WEBPACK_IMPORTED_MODULE_1__["default"], {
+  }, "Add")), /*#__PURE__*/React.createElement("h3", null, "Todos"), todos.map(todo => /*#__PURE__*/React.createElement(_Todo_Todo__WEBPACK_IMPORTED_MODULE_1__["default"], {
     key: todo._id,
     todo: todo,
     buttonAction: moveToCompleted,
@@ -396,9 +396,19 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.wnFJvwW6SXbdzT0JPncz {
   padding: 2rem;
   margin: 2rem;
 }
+@media (min-width: 320px) and (max-width: 1290px) {
+  .wnFJvwW6SXbdzT0JPncz {
+    margin: 0.5rem;
+  }
+}
 .wnFJvwW6SXbdzT0JPncz.O3BRYjiin3KHTwsVflem {
   font-size: 5rem;
   font-weight: bold;
+}
+@media (min-width: 320px) and (max-width: 1290px) {
+  .wnFJvwW6SXbdzT0JPncz.O3BRYjiin3KHTwsVflem {
+    font-size: 3rem;
+  }
 }
 .wnFJvwW6SXbdzT0JPncz .BnzkW84o5qQ9GB8rvVUg {
   display: flex;
@@ -455,7 +465,7 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.wnFJvwW6SXbdzT0JPncz {
   .wnFJvwW6SXbdzT0JPncz h3 {
     font-size: 1.2rem;
   }
-}`, "",{"version":3,"sources":["webpack://./src/components/TodoList/TodoList.module.scss"],"names":[],"mappings":"AAAA;EACI,aAAA;EACA,sBAAA;EACA,eAAA;EACA,+BAAA;EACA,aAAA;EACA,YAAA;AACJ;AACI;EACI,eAAA;EACA,iBAAA;AACR;AAEI;EACI,aAAA;EACA,mBAAA;EACA,cAAA;AAAR;AAEQ;EACI,YAAA;EACA,4BAAA;EACA,+BAAA;EACA,+BAAA;EACA,iBAAA;EACA,cAAA;EACA,SAAA;EACA,4BAAA;EACA,YAAA;EACA,yCAAA;EACA,kBAAA;AAAZ;AAGQ;EACI,sBAAA;EACA,cAAA;EACA,iBAAA;EACA,wCAAA;EACA,0CAAA;EACA,sBAAA;EACA,YAAA;EACA,6BAAA;EACA,gCAAA;EACA,eAAA;EACA,6CAAA;AADZ;AAGY;EACI,4CAAA;AADhB;AAKQ;EArCJ;IAsCQ,cAAA;EAFV;EAIU;IACI,eAAA;IACA,YAAA;EAFd;EAKU;IACI,eAAA;IACA,YAAA;EAHd;AACF;AAOI;EACI,iBAAA;EACA,gBAAA;AALR;AAOQ;EAJJ;IAKQ,iBAAA;EAJV;AACF","sourcesContent":[".todolist {\n    display: flex;\n    flex-direction: column;\n    font-size: 2rem;\n    color: rgba(251, 221, 221, 0.8);\n    padding: 2rem;\n    margin: 2rem;\n\n    &.biggerText {\n        font-size: 5rem;\n        font-weight: bold;\n    }\n\n    .inputContainer {\n        display: flex;\n        align-items: center;\n        margin: 3rem 0;\n\n        .input {\n            flex-grow: 1;\n            border-top-left-radius: 2rem;\n            border-bottom-left-radius: 2rem;\n            color: rgba(251, 221, 221, 0.8);\n            font-size: 2.5rem;\n            height: 3.5rem;\n            margin: 0;\n            /* Remove margin from here */\n            border: none;\n            background-color: rgba(13, 14, 20, 0.588);\n            padding-left: 1rem;\n        }\n\n        .addButton {\n            padding: 0 1rem 0 1rem;\n            height: 3.5rem;\n            font-size: 2.5rem;\n            /* Adjust the font size to match input */\n            background-color: rgba(251, 221, 221, 0.8);\n            color: rgba(13, 14, 20);\n            border: none;\n            border-top-right-radius: 2rem;\n            border-bottom-right-radius: 2rem;\n            cursor: pointer;\n            transition: background-color 0.3s ease-in-out;\n\n            &:hover {\n                background-color: rgba(251, 221, 221, 0.251);\n            }\n        }\n\n        @media (min-width: 320px) and (max-width: 1290px) {\n            margin: 1rem 0;\n\n            .input {\n                font-size: 1rem;\n                height: 2rem;\n            }\n\n            .addButton {\n                font-size: 1rem;\n                height: 2rem;\n            }\n        }\n    }\n\n    h3 {\n        font-size: 1.5rem;\n        margin: 0.5rem 0;\n\n        @media (min-width: 320px) and (max-width: 1290px) {\n            font-size: 1.2rem;\n        }\n    }\n}"],"sourceRoot":""}]);
+}`, "",{"version":3,"sources":["webpack://./src/components/TodoList/TodoList.module.scss"],"names":[],"mappings":"AAAA;EACI,aAAA;EACA,sBAAA;EACA,eAAA;EACA,+BAAA;EACA,aAAA;EACA,YAAA;AACJ;AAAI;EAPJ;IAQQ,cAAA;EAGN;AACF;AADI;EACI,eAAA;EACA,iBAAA;AAGR;AAFQ;EAHJ;IAIQ,eAAA;EAKV;AACF;AAFI;EACI,aAAA;EACA,mBAAA;EACA,cAAA;AAIR;AAFQ;EACI,YAAA;EACA,4BAAA;EACA,+BAAA;EACA,+BAAA;EACA,iBAAA;EACA,cAAA;EACA,SAAA;EACA,4BAAA;EACA,YAAA;EACA,yCAAA;EACA,kBAAA;AAIZ;AADQ;EACI,sBAAA;EACA,cAAA;EACA,iBAAA;EACA,wCAAA;EACA,0CAAA;EACA,sBAAA;EACA,YAAA;EACA,6BAAA;EACA,gCAAA;EACA,eAAA;EACA,6CAAA;AAGZ;AADY;EACI,4CAAA;AAGhB;AACQ;EArCJ;IAsCQ,cAAA;EAEV;EAAU;IACI,eAAA;IACA,YAAA;EAEd;EACU;IACI,eAAA;IACA,YAAA;EACd;AACF;AAGI;EACI,iBAAA;EACA,gBAAA;AADR;AAGQ;EAJJ;IAKQ,iBAAA;EAAV;AACF","sourcesContent":[".todolist {\n    display: flex;\n    flex-direction: column;\n    font-size: 2rem;\n    color: rgba(251, 221, 221, 0.8);\n    padding: 2rem;\n    margin: 2rem;\n    @media (min-width: 320px) and (max-width: 1290px) {\n        margin: 0.5rem;\n    }\n\n    &.biggerText {\n        font-size: 5rem;\n        font-weight: bold;\n        @media (min-width: 320px) and (max-width: 1290px) {\n            font-size: 3rem;\n        }\n    }\n\n    .inputContainer {\n        display: flex;\n        align-items: center;\n        margin: 3rem 0;\n\n        .input {\n            flex-grow: 1;\n            border-top-left-radius: 2rem;\n            border-bottom-left-radius: 2rem;\n            color: rgba(251, 221, 221, 0.8);\n            font-size: 2.5rem;\n            height: 3.5rem;\n            margin: 0;\n            /* Remove margin from here */\n            border: none;\n            background-color: rgba(13, 14, 20, 0.588);\n            padding-left: 1rem;\n        }\n\n        .addButton {\n            padding: 0 1rem 0 1rem;\n            height: 3.5rem;\n            font-size: 2.5rem;\n            /* Adjust the font size to match input */\n            background-color: rgba(251, 221, 221, 0.8);\n            color: rgba(13, 14, 20);\n            border: none;\n            border-top-right-radius: 2rem;\n            border-bottom-right-radius: 2rem;\n            cursor: pointer;\n            transition: background-color 0.3s ease-in-out;\n\n            &:hover {\n                background-color: rgba(251, 221, 221, 0.251);\n            }\n        }\n\n        @media (min-width: 320px) and (max-width: 1290px) {\n            margin: 1rem 0;\n\n            .input {\n                font-size: 1rem;\n                height: 2rem;\n            }\n\n            .addButton {\n                font-size: 1rem;\n                height: 2rem;\n            }\n        }\n    }\n\n    h3 {\n        font-size: 1.5rem;\n        margin: 0.5rem 0;\n\n        @media (min-width: 320px) and (max-width: 1290px) {\n            font-size: 1.2rem;\n        }\n    }\n}"],"sourceRoot":""}]);
 // Exports
 ___CSS_LOADER_EXPORT___.locals = {
 	"todolist": `wnFJvwW6SXbdzT0JPncz`,
@@ -746,4 +756,4 @@ var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js
 /******/ 	
 /******/ })()
 ;
-//# sourceMappingURL=App.2eeaa0abac7e80e23bd81a53aeb202a0.js.map
+//# sourceMappingURL=App.f80e5892a8eaeef406d6e6fec06815d2.js.map

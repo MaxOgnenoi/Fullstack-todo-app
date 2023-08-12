@@ -37,7 +37,7 @@ export default function TodoList({
                     className={styles.addButton}
                     onClick={handleAddTodo}
                 >
-                    Add Todo
+                    Add
                 </button>
             </div>
             <h3>Todos</h3>

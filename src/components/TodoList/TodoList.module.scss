@@ -5,10 +5,16 @@
     color: rgba(251, 221, 221, 0.8);
     padding: 2rem;
     margin: 2rem;
+    @media (min-width: 320px) and (max-width: 1290px) {
+        margin: 0.5rem;
+    }
 
     &.biggerText {
         font-size: 5rem;
         font-weight: bold;
+        @media (min-width: 320px) and (max-width: 1290px) {
+            font-size: 3rem;
+        }
     }
 
     .inputContainer {
